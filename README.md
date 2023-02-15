@@ -1,6 +1,6 @@
 <!-- Trungquandev -->
 <a href="#" target="_blank">
-  <img src="svg/galaxy.svg" width="1200" alt="galaxy" />
+  <img src="gif/plane3d.gif" width="1200" alt="galaxy" />
 </a>
 
 <h2 align="center">🛠 Technologies and Tools 🛠</h2>
