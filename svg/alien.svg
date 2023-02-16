@@ -4,12 +4,13 @@
 
         <div xmlns="http://www.w3.org/1999/xhtml">
             <style>
+
                 .container {
                     position: fixed;
                     top: 50%;
                     left: 50%;
-                    -webkit-transform: translate(-50%, -50%);
-                    transform: translate(-50%, -50%);
+                    bottom: 50%;
+                    right: 50%;
                 }
 
                 .base-container {
@@ -201,37 +202,37 @@
                     }
                 }
 
-                .longfazers {
-                    position: absolute;
+                .container>.longfazers {
+                    position: fixed;
                     width: 100%;
                     height: 100%;
                 }
 
-                .longfazers span {
-                    position: absolute;
+                .container>.longfazers span {
+                    position: fixed;
                     height: 2px;
                     width: 20%;
                     background: #000;
                 }
 
-                .longfazers span:nth-child(1) {
+                .container>.longfazers span:nth-child(1) {
                     top: 20%;
                     animation: lf 0.6s linear infinite;
                     animation-delay: -5s;
                 }
 
-                .longfazers span:nth-child(2) {
+                .container>.longfazers span:nth-child(2) {
                     top: 40%;
                     animation: lf2 0.8s linear infinite;
                     animation-delay: -1s;
                 }
 
-                .longfazers span:nth-child(3) {
+                .container>.longfazers span:nth-child(3) {
                     top: 60%;
                     animation: lf3 0.6s linear infinite;
                 }
 
-                .longfazers span:nth-child(4) {
+                .container>.longfazers span:nth-child(4) {
                     top: 80%;
                     animation: lf4 0.5s linear infinite;
                     animation-delay: -3s;
@@ -286,7 +287,6 @@
                     svg {
                         width: 100%;
                         height: 100%;
-                        overflow: hidden;
                         background: #D1E6FA;
                     }
                 }
@@ -295,7 +295,6 @@
                     svg {
                         width: 100%;
                         height: 100%;
-                        overflow: hidden;
                         background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
                     }
                 }
