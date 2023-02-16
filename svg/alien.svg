@@ -5,7 +5,8 @@
         <div xmlns="http://www.w3.org/1999/xhtml">
             <style>
                 svg {
-                    background-color: #f1c40f;
+                    width: 100%;
+                    height: 100%;
                     overflow: hidden;
                 }
 
@@ -287,6 +288,19 @@
                     100% {
                         left: -100%;
                         opacity: 0;
+                    }
+                }
+
+
+                @media (prefers-color-scheme: light) {
+                    svg {
+                        background: #D1E6FA;
+                    }
+                }
+
+                @media (prefers-color-scheme: dark) {
+                    svg {
+                        background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
                     }
                 }
             </style>
