@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - CSS Typing animation</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background: #1d1f20;
+    }
+
+    h1 {
+      font-family: "Inconsolata", Consolas, monospace;
+      font-size: 4em;
+      color: #d7b94c;
+    }
+
+    .typing {
+      position: relative;
+    }
+
+    .typing::after {
+      content: "|";
+      position: absolute;
+      right: 0;
+      width: 100%;
+      color: white;
+      background: #1d1f20;
+      -webkit-animation: typing 2s steps(16) forwards, caret 1s infinite;
+      animation: typing 2s steps(16) forwards, caret 1s infinite;
+    }
+
+    @-webkit-keyframes typing {
+      to {
+        width: 0;
+      }
+    }
+
+    @keyframes typing {
+      to {
+        width: 0;
+      }
+    }
+
+    @-webkit-keyframes caret {
+      50% {
+        color: transparent;
+      }
+    }
+
+    @keyframes caret {
+      50% {
+        color: transparent;
+      }
+    }
+  </style>
+
+</head>
+
+<body>
+  <!-- partial:index.partial.html -->
+  <h1 class="typing">Hello there!!!</h1>
+
+</body>
+
+</html>

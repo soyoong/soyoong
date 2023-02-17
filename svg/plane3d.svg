@@ -101,6 +101,12 @@
             --wheel-hub: hsl(0, 0%, calc((98 - (var(--dark) * 20)) * 1%));
             --bg: hsl(210, 80%, calc((90 - (var(--dark) * 76)) * 1%));
             --night: #082949;
+            --cloud-one: hsl(0, 0%, calc((98 - (var(--dark) * 35)) * 1%));
+            --cloud-two: hsl(0, 0%, calc((94 - (var(--dark) * 35)) * 1%));
+            --cloud-three: hsl(0, 0%, calc((90 - (var(--dark) * 35)) * 1%));
+            --cloud-four: hsl(0, 0%, calc((86 - (var(--dark) * 35)) * 1%));
+            --cloud-five: hsl(0, 0%, calc((82 - (var(--dark) * 35)) * 1%));
+            --cloud-six: hsl(0, 0%, calc((78 - (var(--dark) * 35)) * 1%));
         }
 
         .scene {
@@ -307,6 +313,71 @@
             transform: translate3d(-50%, 0, calc(var(--base-size) * -1vmin));
         }
 
+        .cloud {
+            height: 10vmin;
+            width: 15vmin;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .cloud__shift {
+            height: 100%;
+            width: 100%;
+        }
+
+        .cloud__body {
+            height: 100%;
+            width: 100%;
+        }
+
+        .cloud__body>div {
+            position: absolute;
+        }
+
+        .cloud__body>div:nth-of-type(1) {
+            bottom: 0;
+            left: 25%;
+            width: 60%;
+            height: 90%;
+            --thickness: calc(var(--base-size) * 0.2);
+        }
+
+        .cloud__body>div:nth-of-type(2) {
+            bottom: 0;
+            left: 0;
+            width: 50%;
+            height: 60%;
+            --thickness: calc(var(--base-size) * 0.3);
+        }
+
+        .cloud__body>div:nth-of-type(3) {
+            bottom: 0;
+            right: 0%;
+            width: 60%;
+            height: 40%;
+            --thickness: calc(var(--base-size) * 0.4);
+        }
+
+        .cloud--one {
+            --speed: 2;
+            --delay: 3;
+            transform: translate(-50%, -50%) translate3d(-40vmin, 20vmin, 26vmin);
+        }
+
+        .cloud--two {
+            --speed: 4;
+            --delay: 1;
+            transform: translate(-50%, -50%) translate3d(30vmin, -15vmin, -34vmin);
+        }
+
+        .cloud--three {
+            --speed: 6;
+            --delay: 2;
+            transform: translate(-50%, -50%) translate3d(50vmin, 35vmin, -14vmin);
+        }
+
         .cuboid--body {
             --thickness: calc(var(--base-size) * 0.4);
         }
@@ -339,7 +410,7 @@
             left: 50%;
             height: calc(var(--base-size) * 0.25vmin);
             width: calc(var(--base-size) * 0.25vmin);
-            background-image: url('data:image/png;base64,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');
+            background-image: url("https://assets.codepen.io/605876/avatar.png");
             background-size: cover;
             filter: saturate(0.65);
             transform: translate3d(-50%, -50%, 1px);
@@ -641,6 +712,30 @@
             background: var(--wheel-hub);
         }
 
+        .cuboid--cloud div:nth-of-type(1) {
+            background: var(--cloud-one);
+        }
+
+        .cuboid--cloud div:nth-of-type(2) {
+            background: var(--cloud-two);
+        }
+
+        .cuboid--cloud div:nth-of-type(3) {
+            background: var(--cloud-three);
+        }
+
+        .cuboid--cloud div:nth-of-type(4) {
+            background: var(--cloud-four);
+        }
+
+        .cuboid--cloud div:nth-of-type(5) {
+            background: var(--cloud-five);
+        }
+
+        .cuboid--cloud div:nth-of-type(6) {
+            background: var(--cloud-six);
+        }
+
         .cuboid--beacon {
             --thickness: calc(var(--base-size) * 0.02);
         }
@@ -688,6 +783,15 @@
                 animation: spin 0.35s infinite linear;
             }
 
+            .cloud__shift {
+                -webkit-animation: pan calc(var(--speed, 5) * 1s) calc(var(--delay, 5) * -1s) infinite ease-in-out both;
+                animation: pan calc(var(--speed, 5) * 1s) calc(var(--delay, 5) * -1s) infinite ease-in-out both;
+            }
+
+            .cloud__body {
+                -webkit-animation: scale calc(var(--speed, 5) * 1s) calc(var(--delay, 5) * -1s) infinite linear;
+                animation: scale calc(var(--speed, 5) * 1s) calc(var(--delay, 5) * -1s) infinite linear;
+            }
         }
 
         @-webkit-keyframes flash {
@@ -853,296 +957,285 @@
                 transform: translate(1000%, 0);
             }
         }
-
-        @media (prefers-color-scheme: light) {
-            body {
-                background: #D1E6FA;
-            }
-        }
-
-        @media (prefers-color-scheme: dark) {
-            body {
-                background: #082949;
-            }
-        }
     </style>
     <foreignObject width="100%" height="100%">
         <div xmlns="http://www.w3.org/1999/xhtml">
             <!-- partial:index.partial.html -->
-            <div class="scene">
-                <div class="cloud cloud--one">
-                    <div class="cloud__shift">
-                        <div class="cloud__body">
-                            <div>
-                                <div class="cuboid cuboid--cloud">
-                                    <div class="cuboid__side"></div>
-                                    <div class="cuboid__side"></div>
-                                    <div class="cuboid__side"></div>
-                                    <div class="cuboid__side"></div>
-                                    <div class="cuboid__side"></div>
-                                    <div class="cuboid__side"></div>
+            <body>
+                <div class="scene">
+                    <div class="cloud cloud--one">
+                        <div class="cloud__shift">
+                            <div class="cloud__body">
+                                <div>
+                                    <div class="cuboid cuboid--cloud">
+                                        <div class="cuboid__side"></div>
+                                        <div class="cuboid__side"></div>
+                                        <div class="cuboid__side"></div>
+                                        <div class="cuboid__side"></div>
+                                        <div class="cuboid__side"></div>
+                                        <div class="cuboid__side"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="cuboid cuboid--cloud">
+                                        <div class="cuboid__side"></div>
+                                        <div class="cuboid__side"></div>
+                                        <div class="cuboid__side"></div>
+                                        <div class="cuboid__side"></div>
+                                        <div class="cuboid__side"></div>
+                                        <div class="cuboid__side"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="cuboid cuboid--cloud">
+                                        <div class="cuboid__side"></div>
+                                        <div class="cuboid__side"></div>
+                                        <div class="cuboid__side"></div>
+                                        <div class="cuboid__side"></div>
+                                        <div class="cuboid__side"></div>
+                                        <div class="cuboid__side"></div>
+                                    </div>
                                 </div>
                             </div>
-                            <div>
-                                <div class="cuboid cuboid--cloud">
-                                    <div class="cuboid__side"></div>
-                                    <div class="cuboid__side"></div>
-                                    <div class="cuboid__side"></div>
-                                    <div class="cuboid__side"></div>
-                                    <div class="cuboid__side"></div>
-                                    <div class="cuboid__side"></div>
+                        </div>
+                    </div>
+                    <div class="cloud cloud--two">
+                        <div class="cloud__shift">
+                            <div class="cloud__body">
+                                <div>
+                                    <div class="cuboid cuboid--cloud">
+                                        <div class="cuboid__side"></div>
+                                        <div class="cuboid__side"></div>
+                                        <div class="cuboid__side"></div>
+                                        <div class="cuboid__side"></div>
+                                        <div class="cuboid__side"></div>
+                                        <div class="cuboid__side"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="cuboid cuboid--cloud">
+                                        <div class="cuboid__side"></div>
+                                        <div class="cuboid__side"></div>
+                                        <div class="cuboid__side"></div>
+                                        <div class="cuboid__side"></div>
+                                        <div class="cuboid__side"></div>
+                                        <div class="cuboid__side"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="cuboid cuboid--cloud">
+                                        <div class="cuboid__side"></div>
+                                        <div class="cuboid__side"></div>
+                                        <div class="cuboid__side"></div>
+                                        <div class="cuboid__side"></div>
+                                        <div class="cuboid__side"></div>
+                                        <div class="cuboid__side"></div>
+                                    </div>
                                 </div>
                             </div>
-                            <div>
-                                <div class="cuboid cuboid--cloud">
-                                    <div class="cuboid__side"></div>
-                                    <div class="cuboid__side"></div>
-                                    <div class="cuboid__side"></div>
-                                    <div class="cuboid__side"></div>
-                                    <div class="cuboid__side"></div>
-                                    <div class="cuboid__side"></div>
+                        </div>
+                    </div>
+                    <div class="cloud cloud--three">
+                        <div class="cloud__shift">
+                            <div class="cloud__body">
+                                <div>
+                                    <div class="cuboid cuboid--cloud">
+                                        <div class="cuboid__side"></div>
+                                        <div class="cuboid__side"></div>
+                                        <div class="cuboid__side"></div>
+                                        <div class="cuboid__side"></div>
+                                        <div class="cuboid__side"></div>
+                                        <div class="cuboid__side"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="cuboid cuboid--cloud">
+                                        <div class="cuboid__side"></div>
+                                        <div class="cuboid__side"></div>
+                                        <div class="cuboid__side"></div>
+                                        <div class="cuboid__side"></div>
+                                        <div class="cuboid__side"></div>
+                                        <div class="cuboid__side"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="cuboid cuboid--cloud">
+                                        <div class="cuboid__side"></div>
+                                        <div class="cuboid__side"></div>
+                                        <div class="cuboid__side"></div>
+                                        <div class="cuboid__side"></div>
+                                        <div class="cuboid__side"></div>
+                                        <div class="cuboid__side"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="plane__floater">
+                        <div class="plane__looper">
+                            <div class="plane">
+                                <div class="plane__wheels">
+                                    <div class="plane__axle">
+                                        <div class="cuboid cuboid--axle">
+                                            <div class="cuboid__side"></div>
+                                            <div class="cuboid__side"></div>
+                                            <div class="cuboid__side"></div>
+                                            <div class="cuboid__side"></div>
+                                            <div class="cuboid__side"></div>
+                                            <div class="cuboid__side"></div>
+                                        </div>
+                                    </div>
+                                    <div class="plane__wheel plane__wheel--left">
+                                        <div class="cuboid cuboid--wheel-left">
+                                            <div class="cuboid__side"></div>
+                                            <div class="cuboid__side"></div>
+                                            <div class="cuboid__side"></div>
+                                            <div class="cuboid__side"></div>
+                                            <div class="cuboid__side"></div>
+                                            <div class="cuboid__side"></div>
+                                        </div>
+                                    </div>
+                                    <div class="plane__wheel plane__wheel--right">
+                                        <div class="cuboid cuboid--wheel-right">
+                                            <div class="cuboid__side"></div>
+                                            <div class="cuboid__side"></div>
+                                            <div class="cuboid__side"></div>
+                                            <div class="cuboid__side"></div>
+                                            <div class="cuboid__side"></div>
+                                            <div class="cuboid__side"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="plane__body">
+                                    <div class="cuboid cuboid--body">
+                                        <div class="cuboid__side"></div>
+                                        <div class="cuboid__side"></div>
+                                        <div class="cuboid__side"></div>
+                                        <div class="cuboid__side"></div>
+                                        <div class="cuboid__side"></div>
+                                        <div class="cuboid__side"></div>
+                                    </div>
+                                </div>
+                                <div class="plane__nose">
+                                    <div class="cuboid cuboid--nose">
+                                        <div class="cuboid__side"></div>
+                                        <div class="cuboid__side"></div>
+                                        <div class="cuboid__side"></div>
+                                        <div class="cuboid__side"></div>
+                                        <div class="cuboid__side"></div>
+                                        <div class="cuboid__side"></div>
+                                    </div>
+                                </div>
+                                <div class="plane__propellor">
+                                    <div class="propellor"></div>
+                                </div>
+                                <div class="plane__screen">
+                                    <div class="cuboid cuboid--screen">
+                                        <div class="cuboid__side"></div>
+                                        <div class="cuboid__side"></div>
+                                        <div class="cuboid__side"></div>
+                                        <div class="cuboid__side"></div>
+                                        <div class="cuboid__side"></div>
+                                        <div class="cuboid__side"></div>
+                                    </div>
+                                </div>
+                                <div class="plane__wings wings">
+                                    <div class="wings__top">
+                                        <div class="cuboid cuboid--wings-top">
+                                            <div class="cuboid__side"></div>
+                                            <div class="cuboid__side"></div>
+                                            <div class="cuboid__side"></div>
+                                            <div class="cuboid__side"></div>
+                                            <div class="cuboid__side"></div>
+                                            <div class="cuboid__side"></div>
+                                        </div>
+                                    </div>
+                                    <div class="wings__ghost">
+                                        <div class="cuboid cuboid--wings-ghost">
+                                            <div class="cuboid__side"></div>
+                                            <div class="cuboid__side"></div>
+                                            <div class="cuboid__side"></div>
+                                            <div class="cuboid__side"></div>
+                                            <div class="cuboid__side"></div>
+                                            <div class="cuboid__side"></div>
+                                        </div>
+                                    </div>
+                                    <div class="wings__bottom">
+                                        <div class="cuboid cuboid--wings-bottom">
+                                            <div class="cuboid__side"></div>
+                                            <div class="cuboid__side"></div>
+                                            <div class="cuboid__side"></div>
+                                            <div class="cuboid__side"></div>
+                                            <div class="cuboid__side"></div>
+                                            <div class="cuboid__side"></div>
+                                        </div>
+                                    </div>
+                                    <div class="wings__strobe wings__strobe--left">
+                                        <div class="cuboid cuboid--strobe">
+                                            <div class="cuboid__side"></div>
+                                            <div class="cuboid__side"></div>
+                                            <div class="cuboid__side"></div>
+                                            <div class="cuboid__side"></div>
+                                            <div class="cuboid__side"></div>
+                                            <div class="cuboid__side"></div>
+                                        </div>
+                                    </div>
+                                    <div class="wings__strobe wings__strobe--right">
+                                        <div class="cuboid cuboid--strobe">
+                                            <div class="cuboid__side"></div>
+                                            <div class="cuboid__side"></div>
+                                            <div class="cuboid__side"></div>
+                                            <div class="cuboid__side"></div>
+                                            <div class="cuboid__side"></div>
+                                            <div class="cuboid__side"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="plane__tail">
+                                    <div class="cuboid cuboid--tail">
+                                        <div class="cuboid__side"></div>
+                                        <div class="cuboid__side"></div>
+                                        <div class="cuboid__side"></div>
+                                        <div class="cuboid__side"></div>
+                                        <div class="cuboid__side"></div>
+                                        <div class="cuboid__side"></div>
+                                    </div>
+                                </div>
+                                <div class="plane__stabilizer plane__stabilizer--horizontal">
+                                    <div class="cuboid cuboid--horizontal-stabilizer">
+                                        <div class="cuboid__side"></div>
+                                        <div class="cuboid__side"></div>
+                                        <div class="cuboid__side"></div>
+                                        <div class="cuboid__side"></div>
+                                        <div class="cuboid__side"></div>
+                                        <div class="cuboid__side"></div>
+                                    </div>
+                                </div>
+                                <div class="plane__stabilizer plane__stabilizer--vertical">
+                                    <div class="cuboid cuboid--vertical-stabilizer">
+                                        <div class="cuboid__side"></div>
+                                        <div class="cuboid__side"></div>
+                                        <div class="cuboid__side"></div>
+                                        <div class="cuboid__side"></div>
+                                        <div class="cuboid__side"></div>
+                                        <div class="cuboid__side"></div>
+                                    </div>
+                                </div>
+                                <div class="plane__beacon">
+                                    <div class="cuboid cuboid--beacon">
+                                        <div class="cuboid__side"></div>
+                                        <div class="cuboid__side"></div>
+                                        <div class="cuboid__side"></div>
+                                        <div class="cuboid__side"></div>
+                                        <div class="cuboid__side"></div>
+                                        <div class="cuboid__side"></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="cloud cloud--two">
-                    <div class="cloud__shift">
-                        <div class="cloud__body">
-                            <div>
-                                <div class="cuboid cuboid--cloud">
-                                    <div class="cuboid__side"></div>
-                                    <div class="cuboid__side"></div>
-                                    <div class="cuboid__side"></div>
-                                    <div class="cuboid__side"></div>
-                                    <div class="cuboid__side"></div>
-                                    <div class="cuboid__side"></div>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="cuboid cuboid--cloud">
-                                    <div class="cuboid__side"></div>
-                                    <div class="cuboid__side"></div>
-                                    <div class="cuboid__side"></div>
-                                    <div class="cuboid__side"></div>
-                                    <div class="cuboid__side"></div>
-                                    <div class="cuboid__side"></div>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="cuboid cuboid--cloud">
-                                    <div class="cuboid__side"></div>
-                                    <div class="cuboid__side"></div>
-                                    <div class="cuboid__side"></div>
-                                    <div class="cuboid__side"></div>
-                                    <div class="cuboid__side"></div>
-                                    <div class="cuboid__side"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="cloud cloud--three">
-                    <div class="cloud__shift">
-                        <div class="cloud__body">
-                            <div>
-                                <div class="cuboid cuboid--cloud">
-                                    <div class="cuboid__side"></div>
-                                    <div class="cuboid__side"></div>
-                                    <div class="cuboid__side"></div>
-                                    <div class="cuboid__side"></div>
-                                    <div class="cuboid__side"></div>
-                                    <div class="cuboid__side"></div>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="cuboid cuboid--cloud">
-                                    <div class="cuboid__side"></div>
-                                    <div class="cuboid__side"></div>
-                                    <div class="cuboid__side"></div>
-                                    <div class="cuboid__side"></div>
-                                    <div class="cuboid__side"></div>
-                                    <div class="cuboid__side"></div>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="cuboid cuboid--cloud">
-                                    <div class="cuboid__side"></div>
-                                    <div class="cuboid__side"></div>
-                                    <div class="cuboid__side"></div>
-                                    <div class="cuboid__side"></div>
-                                    <div class="cuboid__side"></div>
-                                    <div class="cuboid__side"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="plane__floater">
-                    <div class="plane__looper">
-                        <div class="plane">
-                            <div class="plane__wheels">
-                                <div class="plane__axle">
-                                    <div class="cuboid cuboid--axle">
-                                        <div class="cuboid__side"></div>
-                                        <div class="cuboid__side"></div>
-                                        <div class="cuboid__side"></div>
-                                        <div class="cuboid__side"></div>
-                                        <div class="cuboid__side"></div>
-                                        <div class="cuboid__side"></div>
-                                    </div>
-                                </div>
-                                <div class="plane__wheel plane__wheel--left">
-                                    <div class="cuboid cuboid--wheel-left">
-                                        <div class="cuboid__side"></div>
-                                        <div class="cuboid__side"></div>
-                                        <div class="cuboid__side"></div>
-                                        <div class="cuboid__side"></div>
-                                        <div class="cuboid__side"></div>
-                                        <div class="cuboid__side"></div>
-                                    </div>
-                                </div>
-                                <div class="plane__wheel plane__wheel--right">
-                                    <div class="cuboid cuboid--wheel-right">
-                                        <div class="cuboid__side"></div>
-                                        <div class="cuboid__side"></div>
-                                        <div class="cuboid__side"></div>
-                                        <div class="cuboid__side"></div>
-                                        <div class="cuboid__side"></div>
-                                        <div class="cuboid__side"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="plane__body">
-                                <div class="cuboid cuboid--body">
-                                    <div class="cuboid__side"></div>
-                                    <div class="cuboid__side"></div>
-                                    <div class="cuboid__side"></div>
-                                    <div class="cuboid__side"></div>
-                                    <div class="cuboid__side"></div>
-                                    <div class="cuboid__side"></div>
-                                </div>
-                            </div>
-                            <div class="plane__nose">
-                                <div class="cuboid cuboid--nose">
-                                    <div class="cuboid__side"></div>
-                                    <div class="cuboid__side"></div>
-                                    <div class="cuboid__side"></div>
-                                    <div class="cuboid__side"></div>
-                                    <div class="cuboid__side"></div>
-                                    <div class="cuboid__side"></div>
-                                </div>
-                            </div>
-                            <div class="plane__propellor">
-                                <div class="propellor"></div>
-                            </div>
-                            <div class="plane__screen">
-                                <div class="cuboid cuboid--screen">
-                                    <div class="cuboid__side"></div>
-                                    <div class="cuboid__side"></div>
-                                    <div class="cuboid__side"></div>
-                                    <div class="cuboid__side"></div>
-                                    <div class="cuboid__side"></div>
-                                    <div class="cuboid__side"></div>
-                                </div>
-                            </div>
-                            <div class="plane__wings wings">
-                                <div class="wings__top">
-                                    <div class="cuboid cuboid--wings-top">
-                                        <div class="cuboid__side"></div>
-                                        <div class="cuboid__side"></div>
-                                        <div class="cuboid__side"></div>
-                                        <div class="cuboid__side"></div>
-                                        <div class="cuboid__side"></div>
-                                        <div class="cuboid__side"></div>
-                                    </div>
-                                </div>
-                                <div class="wings__ghost">
-                                    <div class="cuboid cuboid--wings-ghost">
-                                        <div class="cuboid__side"></div>
-                                        <div class="cuboid__side"></div>
-                                        <div class="cuboid__side"></div>
-                                        <div class="cuboid__side"></div>
-                                        <div class="cuboid__side"></div>
-                                        <div class="cuboid__side"></div>
-                                    </div>
-                                </div>
-                                <div class="wings__bottom">
-                                    <div class="cuboid cuboid--wings-bottom">
-                                        <div class="cuboid__side"></div>
-                                        <div class="cuboid__side"></div>
-                                        <div class="cuboid__side"></div>
-                                        <div class="cuboid__side"></div>
-                                        <div class="cuboid__side"></div>
-                                        <div class="cuboid__side"></div>
-                                    </div>
-                                </div>
-                                <div class="wings__strobe wings__strobe--left">
-                                    <div class="cuboid cuboid--strobe">
-                                        <div class="cuboid__side"></div>
-                                        <div class="cuboid__side"></div>
-                                        <div class="cuboid__side"></div>
-                                        <div class="cuboid__side"></div>
-                                        <div class="cuboid__side"></div>
-                                        <div class="cuboid__side"></div>
-                                    </div>
-                                </div>
-                                <div class="wings__strobe wings__strobe--right">
-                                    <div class="cuboid cuboid--strobe">
-                                        <div class="cuboid__side"></div>
-                                        <div class="cuboid__side"></div>
-                                        <div class="cuboid__side"></div>
-                                        <div class="cuboid__side"></div>
-                                        <div class="cuboid__side"></div>
-                                        <div class="cuboid__side"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="plane__tail">
-                                <div class="cuboid cuboid--tail">
-                                    <div class="cuboid__side"></div>
-                                    <div class="cuboid__side"></div>
-                                    <div class="cuboid__side"></div>
-                                    <div class="cuboid__side"></div>
-                                    <div class="cuboid__side"></div>
-                                    <div class="cuboid__side"></div>
-                                </div>
-                            </div>
-                            <div class="plane__stabilizer plane__stabilizer--horizontal">
-                                <div class="cuboid cuboid--horizontal-stabilizer">
-                                    <div class="cuboid__side"></div>
-                                    <div class="cuboid__side"></div>
-                                    <div class="cuboid__side"></div>
-                                    <div class="cuboid__side"></div>
-                                    <div class="cuboid__side"></div>
-                                    <div class="cuboid__side"></div>
-                                </div>
-                            </div>
-                            <div class="plane__stabilizer plane__stabilizer--vertical">
-                                <div class="cuboid cuboid--vertical-stabilizer">
-                                    <div class="cuboid__side"></div>
-                                    <div class="cuboid__side"></div>
-                                    <div class="cuboid__side"></div>
-                                    <div class="cuboid__side"></div>
-                                    <div class="cuboid__side"></div>
-                                    <div class="cuboid__side"></div>
-                                </div>
-                            </div>
-                            <div class="plane__beacon">
-                                <div class="cuboid cuboid--beacon">
-                                    <div class="cuboid__side"></div>
-                                    <div class="cuboid__side"></div>
-                                    <div class="cuboid__side"></div>
-                                    <div class="cuboid__side"></div>
-                                    <div class="cuboid__side"></div>
-                                    <div class="cuboid__side"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
+            </body>
         </div>
     </foreignObject>
 </svg>
