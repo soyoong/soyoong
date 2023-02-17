@@ -4,6 +4,12 @@
 
         <div xmlns="http://www.w3.org/1999/xhtml">
             <style>
+                svg {
+                    width: 100%;
+                    height: 100%;
+                    background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+                }
+
                 .container {
                     position: fixed;
                     top: 50%;
@@ -281,23 +287,6 @@
                     }
                 }
 
-
-                @media (prefers-color-scheme: light) {
-                    svg {
-                        width: 100%;
-                        height: 100%;
-                        background: #D1E6FA;
-                    }
-                }
-
-                @media (prefers-color-scheme: dark) {
-                    svg {
-                        width: 100%;
-                        height: 100%;
-                        background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
-                    }
-                }
-
                 .skills {
                     position: fixed;
                     top: 50%;
@@ -334,7 +323,6 @@
                 .icon6 {
                     animation: speeder 0.6s linear infinite;
                 }
-
             </style>
 
             <body>
