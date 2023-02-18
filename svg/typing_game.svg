@@ -1,0 +1,109 @@
+<svg fill="none" viewBox="0 0 1200 750" width="1200" height="750" xmlns="http://www.w3.org/2000/svg">
+    <foreignObject width="100%" height="100%">
+        <div xmlns="http://www.w3.org/1999/xhtml">
+            <style>
+                svg {
+                    width: 100%;
+                    height: 100%;
+                    background-color: #43605e;
+                }
+
+                body {
+                    -webkit-font-smoothing: antialiased;
+                    -moz-osx-font-smoothing: grayscale;
+                }
+
+                main {
+                    position: fixed;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 100%;
+                    height: 100%;
+                    background-color: rgb(140, 154, 154);
+                }
+
+                .inner {
+                    width: 100%;
+                    max-width: 70%;
+                    padding: 2em;
+                    border: 4px solid #fff;
+                    border-radius: 4px;
+                }
+
+                p {
+                    display: inline;
+                    color: #fff;
+                    font-family: "Courier";
+                    font-size: 14px;
+                    line-height: 2em;
+                }
+
+                span {
+                    display: none;
+                    min-width: 1em;
+                }
+
+                .cursor {
+                    display: inline-flex;
+                    width: 3px;
+                    height: 1em;
+                    background-color: #fff;
+                    -webkit-animation: flash 0.8s infinite;
+                    animation: flash 0.8s infinite;
+                }
+
+                @-webkit-keyframes flash {
+                    0% {
+                        opacity: 0;
+                    }
+
+                    49% {
+                        opacity: 0;
+                    }
+
+                    50% {
+                        opacity: 1;
+                    }
+
+                    100% {
+                        opacity: 1;
+                    }
+                }
+
+                @keyframes flash {
+                    0% {
+                        opacity: 0;
+                    }
+
+                    49% {
+                        opacity: 0;
+                    }
+
+                    50% {
+                        opacity: 1;
+                    }
+
+                    100% {
+                        opacity: 1;
+                    }
+                }
+            </style>
+
+            <body>
+                <main>
+                    <div class="inner">
+                        <p data-js="typing">Hello world.</p>
+                        <p data-js="typing">I am interested in many things.</p>
+                        <p data-js="typing">I want to get to know you.</p>
+                        <p data-js="typing">I am doing Twitter with GitHub, so please follow me if you like.</p>
+                        <p data-js="typing">Thanks.</p>
+                        <p class="cursor"></p>
+                    </div>
+                </main>
+                <!-- partial -->
+                <script src="./script.js"></script>
+            </body>
+        </div>
+    </foreignObject>
+</svg>

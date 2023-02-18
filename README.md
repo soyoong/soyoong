@@ -1,7 +1,11 @@
-<!-- Trungquandev -->
+<!-- SoYoongDev -->
+<img src="svg/typing_animation.svg" width="30" />
+
+<div align="center">
 <a href="#" target="_blank">
   <img src="svg/alien.svg" alt="trungquandev-official" />
 </a>
+</div>
 
 <h2 align="center">🛠 Technologies and Tools 🛠</h2>
 <br>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Typing animation using CSS</title>
+  <style>
+    body {
+      background: #000;
+      padding-top: 10px;
+    }
+
+    p {
+      color: lime;
+      font-family: "Courier";
+      font-size: 16px;
+      margin: 10px 0 0 10px;
+      white-space: nowrap;
+      overflow: hidden;
+      width: 30em;
+      animation: type 3s steps(60, end);
+    }
+
+    p a {
+      color: lime;
+      text-decoration: none;
+    }
+
+    span {
+      animation: blink 1s infinite;
+    }
+
+    @keyframes type {
+      from {
+        width: 0;
+      }
+    }
+
+    @keyframes blink {
+      to {
+        opacity: .0;
+      }
+    }
+
+    ::selection {
+      background: black;
+    }
+  </style>
+
+</head>
+
+<body>
+  <!-- partial:index.partial.html -->
+  <p>Hi there!, I'm SoYoong<span>|</span></p>
+  <!-- partial -->
+  <script src="./script.js"></script>
+
+</body>
+
+</html>

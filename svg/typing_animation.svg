@@ -2,24 +2,29 @@
     <foreignObject width="100%" height="100%">
         <div xmlns="http://www.w3.org/1999/xhtml">
             <style>
-                body {
+
+                svg {
+                    width: 100%;
+                    height: 100%;
                     background: #000;
+                }
+                
+                .container {
                     padding-top: 10px;
+                    position: fixed;
+                    display: flexbox;
+                    justify-items: center;
                 }
 
                 p {
                     color: lime;
                     font-family: "Courier";
-                    font-size: 12px;
+                    font-size: 16px;
                     margin: 10px 0 0 10px;
                     white-space: nowrap;
                     overflow: hidden;
                     width: 30em;
-                    animation: type 4s steps(60, end);
-                }
-
-                p:nth-child(2) {
-                    animation: type2 8s steps(60, end);
+                    animation: type 3s steps(60, end);
                 }
 
                 p a {
@@ -37,20 +42,6 @@
                     }
                 }
 
-                @keyframes type2 {
-                    0% {
-                        width: 0;
-                    }
-
-                    50% {
-                        width: 0;
-                    }
-
-                    100% {
-                        width: 100;
-                    }
-                }
-
                 @keyframes blink {
                     to {
                         opacity: .0;
@@ -61,9 +52,11 @@
                     background: black;
                 }
             </style>
+
             <body>
-                <!-- partial:index.partial.html -->
-                <p>Hi, I'm SoYoong, a Mobile Developer <span>|</span> </p>
+                <div class="container">
+                    <p>Hi there!, I'm SoYoong<span>|</span></p>
+                </div>
             </body>
         </div>
     </foreignObject>
