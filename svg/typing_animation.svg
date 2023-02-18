@@ -9,7 +9,7 @@
                 }
 
                 .container {
-                    position: relative;
+                    position: fixed;
                 }
 
                 .container p {
