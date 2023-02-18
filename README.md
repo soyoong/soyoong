@@ -1,5 +1,5 @@
 <!-- SoYoongDev -->
-<img src="svg/typing_animation.svg" height="50" />
+<img src="svg/typing_animation.svg" height="30" />
 
 <div align="center">
 <a href="#" target="_blank">
