@@ -1,5 +1,5 @@
 <!-- SoYoongDev -->
-<img align="center" styles={{margin-left: "10%"}} src="svg/typing_animation.svg" width="100%" height="50" />
+<img align="center" left="10%" src="svg/typing_animation.svg" width="100%" height="50" />
 
 <div align="center">
 <a href="#" target="_blank">
