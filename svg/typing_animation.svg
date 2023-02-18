@@ -14,7 +14,6 @@
 
                 .container p {
                     position: absolute;
-                    top: 50%;
                     font-size: 18px;
                     color: lime;
                     font-family: "Courier";
