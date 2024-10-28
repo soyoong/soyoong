@@ -1,7 +1,7 @@
 <h1 align="center">Hi 👋, I'm SoYoongDev</h1>
 <h3 align="center">A passionate Front-end React and Mobile Developer based in Ho Chi Minh city, Viet Nam. 📍</h3>
 
-- My Portfolio 👉 [https://soyoongdev-portfolio.vercel.app](https://soyoongdev-portfolio.vercel.app)
+- My Portfolio 👉 [https://soyoongdev.vercel.app](https://soyoongdev.vercel.app)
 
 <h3 align="left">Connect with me:</h3>
 <p align="left">
